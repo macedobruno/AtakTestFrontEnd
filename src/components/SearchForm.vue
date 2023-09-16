@@ -1,11 +1,15 @@
 <template>
-  <div class="hello">
+  <div class="Search">
     <h1>{{ msg }}</h1>
     <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
+      <!--For a guide and recipes on how to configure / customize this project,<br>
+      check out the-->
+      <!--<a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.-->
+      <input type="text" v-model="input_search" placeholder="Vamos lá, pesquise o que quiser...">
+      <input type="submit" value="Buscar" v-on:click="submitSearch">
+
     </p>
+    <!--
     <h3>Installed CLI Plugins</h3>
     <ul>
       <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
@@ -27,6 +31,7 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+    -->
   </div>
 </template>
 
@@ -54,5 +59,49 @@ li {
 }
 a {
   color: #42b983;
+}
+input[type=text]{
+  width: 70%;
+  padding: 12px;
+  margin-left: 30px;
+  margin-right: 0px;
+  border: 1px solid #2c3e50;
+  border-right-width: 0px;
+  /*border-radius: 4px;*/
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+input[type=submit]{
+  width: 15%;
+  min-width: auto;
+  padding: 12px;
+  margin-left: 0px;
+  margin-right: 30px;
+  border: 1px solid #2c3e50;
+  /*border-radius: 4px;*/
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+@media (max-width: 400px) {
+  input[type=text]{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 4px;
+    border-right-width: 1px;
+  }
+  input[type=submit]{
+    width: 50%;
+    margin-top: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 4px;
+    border-right-width: 1px;
+  }
+
 }
 </style>
