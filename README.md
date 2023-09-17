@@ -1,24 +1,18 @@
 # Atak Test - FrontEnd
 
-## Project setup
+## Instruções
+
+### Instale as dependências
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compile e execute em ambiente de desenvolvimento
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Caso precise gerar versão de produção
 ```
 npm run build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
