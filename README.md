@@ -2,6 +2,11 @@
 
 O FrontEnd do Projeto usa Vue.JS. Para utilizar a aplica, basta clonar o repositório, instalar dependências e rodar o serviço ou gerar versão de produção.
 
+## Requisitos
+
+ - Node.js
+ - NPM
+
 ## Instruções
 
 ### Instale as dependências
@@ -13,6 +18,8 @@ npm install
 ```
 npm run serve
 ```
+
+## Utilização
 
 A aplicação estará disponível pelo endereço na porta 8080. Com o serviço rodanado, basta acessar o endereço:
 ```
