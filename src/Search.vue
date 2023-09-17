@@ -1,25 +1,19 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
+  <img class="logo" alt="GSearch logo" src="./assets/logo.png">
   <!--<Form title="GSearch" res="Escreva alguma coisa"/>-->
   <Form/>
-  <GResults res="Escreva alguma coisa"/>
+  <!--<GResults res="Escreva alguma coisa"/>-->
 </template>
 
 <script>
   import Form from './components/SearchForm.vue'
-  import GResults from './components/GResults.vue'
+  //import GResults from './components/GResults.vue'
   //import axios from "axios";
 
   export default {
 
     data(){
       return {
-        results: {},
-        input_search:"",
-        info:null,
-        loading:true,
-        errored:false,
-        url:"localhost:8000/api/search?q="
       };
     },
 
@@ -27,9 +21,9 @@
     name: 'SForm',
     components: {
       Form,
-      GResults
+      //GResults
     },
-
+    /*
     methods: {
       getSearch: function(){
         alert("Caiu aqui");
@@ -64,14 +58,20 @@
           console.log(error);
         }
         */
+      /*
       }
-    },
+      
+    },*/
   };
 
   
 </script>
 
 <style>
+.logo{
+  width: 256px;
+}
+
 #search {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
