@@ -1,28 +1,26 @@
 <template>
   <div class="Search">
     <h1>GSearch</h1>
-      <!--<a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.-->
     <form>
       <input type="text" v-model="input_search" ref="input" placeholder="Vamos lá, pesquise o que quiser..."/>
       <input type="submit" value="Buscar" v-on:click="getSearch"/>
     </form>
 
     <span class="status">
-      <h3>
+      <h2>
         {{status}}
-      </h3>
+      </h2>
+      <hr v-if="status != ''" class="rounded">
     </span>
 
   </div>
   <template v-if="status != ''">
     <div class="ResultSearch">
-      <!--<span> {{ results }}</span>-->
       <div class="resultTable">
         <ul>
           <li v-for="res in resultTuple" :key="res.title">
+            <span><h4>{{ res.title }}</h4></span>
             <p>
-              <span><h4>{{ res.title }}</h4></span>
-              <br>
               <a :href="res.link" target="_blank" rel="noopener"> [{{ res.link }}] </a>
             </p>
           </li>
@@ -42,115 +40,101 @@ import axios from 'axios';
 
 export default {
   name: 'SForm',
-  //result:'',
-  //results:'',
+  
   data(){
     return {
       input_search:'',
-      url:"http://localhost:8000/api/search?q=",
-      //results: [],
+      url:"http://localhost:8000/api/search?q=", 
       status:'',
     }
   },
 
   mounted(){
+    //foco no input ao carregar
     this.$refs.input.focus();
   },
 
   methods:{
+    //metodo para consumir api de pesquisa
     getSearch(e){
       e.preventDefault(e);
-      /*if (!this.input_search){
-        alert("está vazio? pelo menos entrou aqui");
-        this.status='';
-      }
-      */
-      this.status='Pesquisando...';
-      //alert("chegou aqui");
-      //alert(this.url+this.input_search);
 
+      // corrige valor de status para não mostrar quando não houver pesquisa
+      if (this.input_search !== ''){
+        this.status='Pesquisando...';
+      }
+      
       try{
         axios
+          //faz requisicao usando a url da api  mais valor do input
           .get(this.url+this.input_search)
+          //aguarda resposta
           .then((response) => {
+
+            //altera status 
             this.status='Resultados da Pesquisa';
-            //alert(response);
+
+            // converte de object para string usando padrao json
             this.results = JSON.stringify(response.data);
-            
-            //alert('response: '+typeof(this.results));
-            //alert('response data: '+typeof(response.data));
-            
-            //alert('value: '+response.value);
-            //alert('data value: '+response.data.value);
-            
-            //alert('results type: '+typeof(this.results));
-            //let titles=[];
-            //let links=[];
+
+            // cria tupla para manter resultado da pesquisa ["title":"link"]
             this.resultTuple = [];
             JSON.parse(this.results, (tit, lin) => {
-              //alert("titles: "+tit);
-              //alert("links: "+lin);
-              this.resultTuple.push({
-                title: tit,
-                link: "http://"+lin+"/"
-              })
-              //titles.push(title);
-              //links.push(link);
+
+              //confima que os valores convertidos serão string
+              if ((typeof lin === 'string') && (typeof tit === 'string')) {
+                this.resultTuple.push({
+                  title: tit,
+                  link: "http://"+lin+"/"
+                  })
+              }
             });
-
-
-            //alert('parse results: '+typeof(JSON.parse(this.results)));
-            //alert('parse: '+JSON.parse(this.results));
-            //alert('parse key: '+JSON.parse(this.results));
-            //alert('type parsed: '+parsed);
-            //alert('parsed: '+parsed);
-            //let respDataStr = response.data //texto
-            //let jsObject = JSON.parse(respDataStr) //converte texto recebido para
-            //this.windows = jsObject
-            //this.jsresults = JSON.parse(respDataStr);
-
-            //alert(this.results);
-            
           })
           .catch((errors) => {
             alert("ERROR: "+errors);
           })
-        /*this.parcialr=[];
-        for (this.parcialr in this.response.data){
-          alert (this.parcialr);
-        }*/
       } catch(e){
         alert(e);
       }
     }
   },
   
-  props: {
-    title: String,
+  //props: {
+    /*title: String,
     res: String,
-    search: String,
-  }
+    search: String,*/
+  //}
+  
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
-  margin: 40px 0 0;
+  margin-bottom: 5px;
+  margin-top: 50px;
+}
+h2{
+  margin-bottom: 5px;
+  margin-top: 30px;
+}
+h4{
+  margin-bottom: 7px;
 }
 ul {
   list-style-type: none;
   padding: 0;
 }
 li {
-  display: inline-block;
-  margin: 0 10px;
+  width: 100%;
+  /*display: inline-block;*/
+  margin: 30px 0px 45px 0px;
 }
 a {
   color: #42b983;
 }
 p{
   width: 100%;
+  margin-top: 0px;;
 }
 input{
   width: 65%;
@@ -181,14 +165,25 @@ input[type=submit]{
   resize: vertical;
   cursor: pointer;
 }
-.resultTable .h4 .p{
+h5{
+  margin-bottom: 5px;
+}
+hr{
+  width: 80%;
+  margin-bottom: 60px;
+  border-top: 8px solid #e2e2e2;
+  border-radius: 5px;
+}
+.resultTable .p{
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 30px;
+  margin-right: 30px;
   margin-bottom: 2px;
+  margin-top: 10px;
 }
 .ResultSearch{
   word-wrap: normal;
+  margin: 0 100px;
 }
 @media (max-width: 415px) {
   /*input[type=text]{*/
