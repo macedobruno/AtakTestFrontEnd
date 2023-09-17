@@ -26,6 +26,11 @@
 .logo{
   width: 256px;
 }
+@media (max-width: 415px) {
+  .logo{
+    width: 65%;
+  }
+}
 
 #search {
   font-family: Avenir, Helvetica, Arial, sans-serif;
