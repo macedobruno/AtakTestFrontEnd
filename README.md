@@ -1,4 +1,4 @@
-# bms-ataktest
+# Atak Test - FrontEnd
 
 ## Project setup
 ```
