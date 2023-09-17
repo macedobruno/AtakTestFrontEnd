@@ -1,6 +1,6 @@
 # Atak Test - FrontEnd
 
-O FrontEnd do Projeto usa Vue.JS. Para utilizar a aplica, basta clonar o repositório, instalar dependências e rodar o serviço ou gerar versão de produção.
+O FrontEnd do Projeto usa Vue.JS. Para utilizar a aplicação, basta clonar o repositório, instalar dependências e executar o serviço.
 
 ## Requisitos
 
