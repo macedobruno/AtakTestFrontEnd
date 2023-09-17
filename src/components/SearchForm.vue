@@ -85,7 +85,7 @@ export default {
               if ((typeof lin === 'string') && (typeof tit === 'string')) {
                 this.resultTuple.push({
                   title: tit,
-                  link: "http://"+lin+"/"
+                  link: lin
                   })
               }
             });
