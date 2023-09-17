@@ -1,24 +1,20 @@
 # Atak Test - FrontEnd
 
-## Project setup
+O FrontEnd do Projeto usa Vue.JS. Para utilizar a aplica, basta clonar o repositório, instalar dependências e rodar o serviço ou gerar versão de produção.
+
+## Instruções
+
+### Instale as dependências
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compile e execute em ambiente de desenvolvimento
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+A aplicação estará disponível pelo endereço na porta 8080. Com o serviço rodanado, basta acessar o endereço:
 ```
-npm run build
+http://localhost:8080/
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

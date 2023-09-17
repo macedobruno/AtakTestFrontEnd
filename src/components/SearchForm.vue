@@ -62,39 +62,39 @@ export default {
       // corrige valor de status para não mostrar quando não houver pesquisa
       if (this.input_search !== ''){
         this.status='Pesquisando...';
-      }
       
-      try{
-        axios
-          //faz requisicao usando a url da api  mais valor do input
-          .get(this.url+this.input_search)
-          //aguarda resposta
-          .then((response) => {
+        try{
+          axios
+            //faz requisicao usando a url da api  mais valor do input
+            .get(this.url+this.input_search)
+            //aguarda resposta
+            .then((response) => {
 
-            //altera status 
-            this.status='Resultados da Pesquisa';
+              //altera status 
+              this.status='Resultados da Pesquisa';
 
-            // converte de object para string usando padrao json
-            this.results = JSON.stringify(response.data);
+              // converte de object para string usando padrao json
+              this.results = JSON.stringify(response.data);
 
-            // cria tupla para manter resultado da pesquisa ["title":"link"]
-            this.resultTuple = [];
-            JSON.parse(this.results, (tit, lin) => {
+              // cria tupla para manter resultado da pesquisa ["title":"link"]
+              this.resultTuple = [];
+              JSON.parse(this.results, (tit, lin) => {
 
-              //confima que os valores convertidos serão string
-              if ((typeof lin === 'string') && (typeof tit === 'string')) {
-                this.resultTuple.push({
-                  title: tit,
-                  link: lin
-                  })
-              }
-            });
-          })
-          .catch((errors) => {
-            alert("ERROR: "+errors);
-          })
-      } catch(e){
-        alert(e);
+                //confima que os valores convertidos serão string
+                if ((typeof lin === 'string') && (typeof tit === 'string')) {
+                  this.resultTuple.push({
+                    title: tit,
+                    link: lin
+                    })
+                }
+              });
+            })
+            .catch((errors) => {
+              alert("ERROR: "+errors);
+            })
+        } catch(e){
+          alert(e);
+        }
       }
     }
   },
