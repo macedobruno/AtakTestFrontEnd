@@ -14,7 +14,7 @@ npm install
 npm run serve
 ```
 
-### Caso precise gerar versão de produção
+A aplicação estará disponível pelo endereço na porta 8080. Com o serviço rodanado, basta acessar o endereço:
 ```
-npm run build
+http://localhost:8080/
 ```
