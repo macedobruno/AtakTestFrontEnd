@@ -180,7 +180,7 @@ hr {
 
 .ResultSearch {
   word-wrap: normal;
-  margin: 0 100px;
+  margin: 0 15%;
 }
 
 @media (max-width: 415px) {
